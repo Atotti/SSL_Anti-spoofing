@@ -1,0 +1,34 @@
+[project]
+name = "SSL_Anti-spoofing"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+  "torch==1.8.1+cu111",
+  "torchaudio==0.8.1",
+  "torchvision==0.9.1+cu111",
+  "numpy==1.19.5",
+  "librosa==0.9.1",
+  "tensorboardX==2.5.1",
+  "fairseq @ file:///${PROJECT_ROOT}/fairseq-a54021305d6b3c4c5959ac9395135f63202db8f1", # https://stackoverflow.com/questions/75159453/specifying-local-relative-dependency-in-pyproject-toml
+  "wandb>=0.18.7",
+  "tqdm>=4.67.1",
+  "pysoundfile>=0.9.0.post1",
+]
+
+[tool.uv.sources]
+torch = [
+    { index = "pytorch-cu111" },
+]
+torchvision = [
+    { index = "pytorch-cu111" },
+]
+torchaudio = [
+    { index = "pytorch-cu111" },
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu111"
+url = "https://download.pytorch.org/whl/cu111"
+explicit = true

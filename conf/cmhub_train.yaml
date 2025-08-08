@@ -1,4 +1,4 @@
-# Hydra configuration for CM Hub training
+# CM Hub training configuration (independent of Fairseq)
 
 data:
   train_scp: null

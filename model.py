@@ -21,7 +21,11 @@ class SSLModel(nn.Module):
     def __init__(self,device):
         super(SSLModel, self).__init__()
         
-        cp_path = 'xlsr2_300m.pt'   # Change the pre-trained XLSR model path. 
+        import os
+        # Get absolute path to xlsr2_300m.pt in the same directory as this file
+        cp_path = os.path.join(os.path.dirname(__file__), 'xlsr2_300m.pt')
+        print(f"DEBUG: Looking for model at: {cp_path}")
+        print(f"DEBUG: File exists: {os.path.exists(cp_path)}") 
         model, cfg, task = fairseq.checkpoint_utils.load_model_ensemble_and_task([cp_path])
         self.model = model[0]
         self.device=device
